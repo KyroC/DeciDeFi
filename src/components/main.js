@@ -8,6 +8,9 @@ function Main() {
             <Container>
                 <Row>
                     <Col>New Pools</Col>
+                    <Col>Top ETH Pools</Col>
+                    <Col>Top BSC Pools</Col>
+                    <Col>Top AVAX Pools</Col>
                 </Row>
             </Container>
         </>
