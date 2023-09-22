@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Main from './components/main'
+import Dex from './components/dex'
+import Home from './components/home'
 
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
       <div className="Navbar">Nav</div>
       <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/dex" element={<Dex />} />
       </Routes>
       
       </BrowserRouter>
