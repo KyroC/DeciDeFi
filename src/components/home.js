@@ -16,35 +16,36 @@ function Home() {
         fetch(`https://api.coingecko.com/api/v3/search/trending`)
             .then(res => res.json())
             .then(
-                (result) => setTrendingCoins(result))
+                (result) => setTrendingCoins(result.coins))
     },[])
     return(
         <>
             <Container>
                 <Row>
                     <Col>
-                        <h1>Trending Coins</h1>
+                        <Card style={{width: '25rem'}}>
+                        <Card.Header>Trending Coins </Card.Header>
                         <Carousel>
-                            <Card style={{width: '25rem'}}>
-                            <Card.Title>
-                                    Banana Coin
-                                </Card.Title>
-                                <Card.Img style={{width:'10rem'}} src={trendingCoins["coins"][0]["item"]["large"]}/>
-                                <Card.Text>
+                                {trendingCoins.map(coin => {
+                                    return(
+                                        <Carousel.Item>
+                                             <Card.Title>
+                                                {coin.item.name}
+                                             </Card.Title>
+                                             <Card.Img style={{width:'10rem'}}  src={coin.item.large}/>
 
-                                </Card.Text>
-                            </Card>
+                                        <Card.Text >
+                                            {coin.item.symbol}
+                                            <br />
+                                            {coin.item.market_cap_rank}
+                                        </Card.Text>
+                                        </Carousel.Item>
+                                    )
+                                })}
                         </Carousel>
+                        </Card>
                     </Col>
-                    <Col>
-                        <Carousel>
-                            <Card>
-                                <Card.Title>
-                                    Trending Collections
-                                </Card.Title>
-                            </Card>
-                        </Carousel>
-                    </Col>
+                    
                 </Row>
             </Container>
             <h1>Market</h1>
