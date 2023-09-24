@@ -1,5 +1,5 @@
 # Live App
-https://deci2defi.web.app/[https://deci2defi.web.app/]
+[https://deci2defi.web.app/] (https://deci2defi.web.app/)
 
 # DeciDeFi
 
