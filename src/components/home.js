@@ -16,6 +16,7 @@ function Home() {
     const [trendingCoins, setTrendingCoins] = useState([])
     const [trendingNfts, setTrendingNfts] = useState([])
     const [filteredCoins, setFilteredCoins] = useState([])
+    const [sortedCoins, setSortedCoins] = useState([])
     
     useEffect(() => {
         fetch(`https://api.coingecko.com/api/v3/search/trending`)
@@ -28,8 +29,15 @@ function Home() {
         fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C30d`)
         .then(res => res.json())
         .then(
-            (result) => setCoins(result))  
+            (result) => {
+                setCoins(result)
+                setSortedCoins(result)}
+                )  
     },[])
+
+    const handleSortPrice = () => {
+        
+    }
     return(
         <>
             <Container>
