@@ -9,6 +9,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Form from 'react-bootstrap/Form';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Stack from 'react-bootstrap/Stack'
 
 function Home() {
@@ -34,13 +35,32 @@ function Home() {
                 setSortedCoins(result)}
                 )  
     },[])
+    const handleSortMcap = (e) => {
+        e.preventDefault()
+        const sortingArray = sortedCoins.sort(
+            (p1,p2) => (p1.market_cap < p2.market_cap) ? 1 : (p1.market_cap > p2.market_cap) ? - 1 : 0 );
+            setSortedCoins([...sortingArray])
+
+    }
 
     const handleSortPrice = (e) => {
         e.preventDefault()
         const sortingArray = sortedCoins.sort(
             (p1,p2) => (p1.current_price < p2.current_price) ? 1 : (p1.current_price > p2.current_price) ? - 1 : 0 );
             setSortedCoins([...sortingArray])
-            console.log(sortingArray)
+
+    }
+    const handleSortGainer = (e) => {
+        e.preventDefault()
+        const sortingArray = sortedCoins.sort(
+            (p1,p2) => (p1.price_change_percentage_24h < p2.price_change_percentage_24h) ? 1 : (p1.price_change_percentage_24h > p2.price_change_percentage_24h) ? - 1 : 0 );
+            setSortedCoins([...sortingArray])
+    }
+    const handleSortLoser = (e) => {
+        e.preventDefault()
+        const sortingArray = sortedCoins.sort(
+            (p2,p1) => (p1.price_change_percentage_24h < p2.price_change_percentage_24h) ? 1 : (p1.price_change_percentage_24h > p2.price_change_percentage_24h) ? - 1 : 0 );
+            setSortedCoins([...sortingArray])
     }
     return(
         <>
@@ -123,9 +143,11 @@ function Home() {
                 title="Sort By"
                 className="ms-auto border rounded"
                 variant="Secondary">
-                    <Dropdown.Item>Market Cap</Dropdown.Item>
+                    
+                    <Dropdown.Item onClick={(e) => handleSortMcap(e)}>Market Cap (Default)</Dropdown.Item>
                     <Dropdown.Item onClick={(e) => handleSortPrice(e)}>Price</Dropdown.Item>
-                    <Dropdown.Item>24H Change</Dropdown.Item>
+                    <Dropdown.Item onClick={(e) => handleSortGainer(e)}>Top Gainers %</Dropdown.Item>
+                    <Dropdown.Item onClick={(e) => handleSortLoser(e)}>Top Losers %</Dropdown.Item>
                 </DropdownButton>
             </Stack>
             <Table striped bordered hover responsive className="mt-0">
