@@ -1,5 +1,5 @@
 
-# Defi Tracker Bootstrap
+# DeciDeFi
 
 A Defi and Coin Tracker created using Bootstrap, React and CoinGecko API.
 
