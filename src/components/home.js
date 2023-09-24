@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Carousel from 'react-bootstrap/Carousel';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Form from 'react-bootstrap/Form';
 
 function Home() {
     const [coins, setCoins] = useState([])
@@ -36,7 +37,7 @@ function Home() {
                             <path d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16Zm0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15Z"/>
                             </svg>Trending Coins  
                         </Card.Header>
-                        <Carousel style={{height:'18rem'}} >
+                        <Carousel interval={10000} style={{height:'18rem'}} >
                                 {trendingCoins.map(coin => {
                                     return(
                                         <Carousel.Item className="px-5">
@@ -49,9 +50,9 @@ function Home() {
                                                 </Container>
                                                     <Card.Text>
                                                         <ListGroup variant="flushed">
-                                                            <ListGroup.Item>Symbol: {coin.item.symbol}</ListGroup.Item>
-                                                            <ListGroup.Item>MCAP: {coin.item.market_cap_rank}</ListGroup.Item>
-                                                            <ListGroup.Item>{coin.item.symbol}/USD: $10000</ListGroup.Item>
+                                                            <ListGroup.Item className="d-flex justify-content-between"><span>Symbol: </span><span>{coin.item.symbol}</span></ListGroup.Item>
+                                                            <ListGroup.Item className="d-flex justify-content-between"><span>MCAP Rank:</span><span> {coin.item.market_cap_rank}</span></ListGroup.Item>
+                                                            <ListGroup.Item className="d-flex justify-content-between"><span>{coin.item.symbol}/USD</span> <span>$10000</span></ListGroup.Item>
                                                         </ListGroup>
                                                         
                                                     </Card.Text>
@@ -70,7 +71,7 @@ function Home() {
                             <path d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16Zm0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15Z"/>
                             </svg>Trending NFTs
                          </Card.Header>
-                        <Carousel style={{height:'18rem'}}>
+                        <Carousel interval={10000} style={{height:'18rem'}}>
                                 {trendingNfts.map(nft => {
                                     return(
                                         <Carousel.Item className="px-5">
@@ -83,9 +84,9 @@ function Home() {
                                                 </Container>
                                                 <Card.Text >
                                                     <ListGroup variant="flushed">
-                                                            <ListGroup.Item>Symbol: {nft.symbol}</ListGroup.Item>
-                                                            <ListGroup.Item>Native Coin - {nft.native_currency_symbol.toUpperCase()}</ListGroup.Item>
-                                                            <ListGroup.Item>{nft.symbol}/ETH: $1000</ListGroup.Item>
+                                                            <ListGroup.Item className="d-flex justify-content-between"><span>Symbol: </span><span>{nft.symbol}</span></ListGroup.Item>
+                                                            <ListGroup.Item className="d-flex justify-content-between"><span>Native Coin</span><span> {nft.native_currency_symbol.toUpperCase()}</span></ListGroup.Item>
+                                                            <ListGroup.Item className="d-flex justify-content-between"><span>{nft.symbol}/ETH</span><span>$1000</span></ListGroup.Item>
                                                         </ListGroup>
                                                 </Card.Text>
                                                 </Card.Body>
