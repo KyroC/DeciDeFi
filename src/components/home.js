@@ -7,12 +7,15 @@ import Carousel from 'react-bootstrap/Carousel';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Form from 'react-bootstrap/Form';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Stack from 'react-bootstrap/Stack'
 
 function Home() {
     const [coins, setCoins] = useState([])
     const [trendingCoins, setTrendingCoins] = useState([])
     const [trendingNfts, setTrendingNfts] = useState([])
-
+    const [filteredCoins, setFilteredCoins] = useState([])
     
     useEffect(() => {
         fetch(`https://api.coingecko.com/api/v3/search/trending`)
@@ -101,7 +104,18 @@ function Home() {
             </Container>
             
             <Container className="p-10">
-            <h1>Market</h1>
+            <Stack direction="horizontal">
+                
+                <h1>Market</h1>
+                <DropdownButton
+                title="Sort By"
+                className="ms-auto border rounded"
+                variant="Secondary">
+                    <Dropdown.Item>Market Cap</Dropdown.Item>
+                    <Dropdown.Item>Price</Dropdown.Item>
+                    <Dropdown.Item>24H Change</Dropdown.Item>
+                </DropdownButton>
+            </Stack>
             <Table striped bordered hover responsive className="mt-0">
                 <thead>
                     <tr>
