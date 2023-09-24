@@ -30,46 +30,58 @@ function Home() {
         <>
             <Container>
                 <Row className="justify-content-center">
-                    <Col className="col-4">
+                    <Col xl="4" lg="6" md="8">
                         <Card style={{height:'18rem'}}>
                         <Card.Header>Trending Coins </Card.Header>
                         <Carousel style={{height:'18rem'}} >
                                 {trendingCoins.map(coin => {
                                     return(
-                                        <Carousel.Item className="p-5">
-                                             <Card.Title>
-                                                {coin.item.name}
-                                             </Card.Title>
-                                             <Card.Img style={{width:'2rem'}}  src={coin.item.large}/>
-
-                                        <Card.Text >
-                                            {coin.item.symbol}
-                                            <br />
-                                            {coin.item.market_cap_rank}
-                                        </Card.Text>
+                                        <Carousel.Item className="px-5">
+                                            <Card.Body >
+                                                <Container style= {{height:"4rem"}} className="d-flex flex-row justify-content-around align-items-center border rounded">
+                                                    <Card.Title style={{width:'100%'}} className="h2">
+                                                        {coin.item.name}
+                                                    </Card.Title>
+                                                    <Card.Img style={{width:'2rem'}}  src={coin.item.large}/>
+                                                    
+                                                </Container>
+                                                <Container className="border rounded">
+                                                    <Card.Text>
+                                                        {coin.item.symbol}
+                                                        <br />
+                                                        {coin.item.market_cap_rank}
+                                                    </Card.Text>
+                                            </Container>
+                                        </Card.Body>
                                         </Carousel.Item>
                                     )
                                 })}
                         </Carousel>
                         </Card>
                     </Col>
-                    <Col className="col-4">
+                    <Col md="8" lg="6" xl="4" > 
                         <Card style={{height:'18rem'}}>
                         <Card.Header>Trending NFTs </Card.Header>
                         <Carousel style={{height:'18rem'}}>
                                 {trendingNfts.map(nft => {
                                     return(
-                                        <Carousel.Item className="p-5">
-                                             <Card.Title>
-                                                {nft.name}
-                                             </Card.Title>
-                                             <Card.Img style={{width:'2rem'}}  src={nft.thumb}/>
-
-                                        <Card.Text >
-                                            {nft.symbol}
-                                            <br />
-                                            {nft.native_currency_symbol}
-                                        </Card.Text>
+                                        <Carousel.Item className="px-5">
+                                            <Card.Body>
+                                            <Container style= {{height:"4rem"}} className="d-flex flex-row justify-content-around align-items-center border rounded">
+                                                    <Card.Title style={{width:'100%'}} className="h2">
+                                                        {nft.name}
+                                                    </Card.Title>
+                                                    <Card.Img style={{width:'2rem'}}  src={nft.thumb}/>
+                                                </Container>
+                                                <Container className="border rounded">
+                                                <Card.Text >
+                                                    {nft.symbol}
+                                                    <br />
+                                                    {nft.native_currency_symbol}
+                                                </Card.Text>
+                                                </Container>
+                                                </Card.Body>
+                                                
                                         </Carousel.Item>
                                     )
                                 })}
