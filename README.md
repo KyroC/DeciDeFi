@@ -20,4 +20,10 @@ A Defi and Coin Tracker created using Bootstrap, React and CoinGecko API.
  - [React Bootstrap](https://react-bootstrap.netlify.app/)
  - [FireBase](https://firebase.google.com/)
 
+ ## To add
+
+ - Pagination for table
+ - Display by # of entries
+ - Filter function for table
+
 
