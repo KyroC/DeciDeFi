@@ -17,7 +17,7 @@ function App() {
           <Navbar.Brand href="#home">DeciDeFi</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#dex">DEX</Nav.Link>
+            <Nav.Link href="#dex">Dex</Nav.Link>
             <Nav.Link href="#pools">Pools</Nav.Link>
           </Nav>
         </Container>
